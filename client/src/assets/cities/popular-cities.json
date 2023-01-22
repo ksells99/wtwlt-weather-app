@@ -1,0 +1,37 @@
+[
+  {
+    "name": "London",
+    "coord": {
+      "lon": -0.12574,
+      "lat": 51.50853
+    }
+  },
+  {
+    "name": "Paris",
+    "coord": {
+      "lon": 2.3486,
+      "lat": 48.853401
+    }
+  },
+  {
+    "name": "New York City",
+    "coord": {
+      "lon": -74.005966,
+      "lat": 40.714272
+    }
+  },
+  {
+    "name": "Berlin",
+    "coord": {
+      "lon": 13.41053,
+      "lat": 52.524368
+    }
+  },
+  {
+    "name": "Rome",
+    "coord": {
+      "lon": 12.4839,
+      "lat": 41.894741
+    }
+  }
+]

@@ -1,0 +1,13 @@
+.navbar {
+  background-color: #264653;
+}
+
+.navbar-brand {
+  display: flex;
+
+  .img {
+    display: flex;
+    flex-direction: column;
+    vertical-align: bottom;
+  }
+}
