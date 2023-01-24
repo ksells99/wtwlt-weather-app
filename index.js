@@ -18,7 +18,8 @@ const app = express();
 app.set("trust proxy", 1);
 
 // Include routes from weather.js
-app.use("/api", require("./routes/weather"));
+app.use("/api/weather", require("./routes/weather"));
+app.use("/api/cities", require("./routes/cities"));
 
 // Enable CORS
 app.use(cors());

@@ -64,6 +64,7 @@ export interface IWeather {
   summary: string;
   description: string;
   windSpeed: number;
+  icon: string;
 }
 
 export interface ICity {

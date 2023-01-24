@@ -1,32 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather.service';
 import { IWeather } from 'src/app/types/weather.model';
-import { ICity } from 'src/app/types/city.model';
-import popularCities from '../../../assets/cities/popular-cities.json';
-import { combineLatest, forkJoin, Observable } from 'rxjs';
+import { forkJoin, map, Observable, Subscription, switchMap } from 'rxjs';
+import { CitiesService } from 'src/app/services/cities.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
-  constructor(private weatherService: WeatherService) {}
+export class DashboardComponent implements OnInit, OnDestroy {
+  constructor(
+    private weatherService: WeatherService,
+    private citiesService: CitiesService
+  ) {}
 
   weatherCities: IWeather[] = [];
-  weatherData$!: Observable<IWeather>[];
+  weatherData$!: Subscription;
 
   ngOnInit(): void {
-    this.weatherData$ = popularCities.map((city) =>
-      this.weatherService.getCurrentWeatherForCity(
-        city.coord.lat,
-        city.coord.lon
-      )
-    );
+    this.weatherData$ = this.getWeatherData().subscribe();
+  }
 
-    combineLatest([...this.weatherData$]).subscribe((x: IWeather[]) => {
-      console.log(x);
-      x.map((y) => this.weatherCities.push(y));
-    });
+  getWeatherData(): Observable<number[]> {
+    return this.citiesService
+      .getPopularCities()
+      .pipe(
+        switchMap((cities) =>
+          forkJoin(
+            cities.map((city) =>
+              this.weatherService
+                .getCurrentWeatherForCity(city.coord.lat, city.coord.lon)
+                .pipe(map((x) => this.weatherCities.push(x)))
+            )
+          )
+        )
+      );
+  }
+
+  ngOnDestroy(): void {
+    this.weatherData$.unsubscribe();
   }
 }

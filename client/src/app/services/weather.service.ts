@@ -12,7 +12,7 @@ export class WeatherService {
   // will take in lat/long
   getCurrentWeatherForCity(lat: number, long: number): Observable<IWeather> {
     return this.http
-      .get<ServerWeather>(`/api?lat=${lat}&lon=${long}&units=metric`)
+      .get<ServerWeather>(`/api/weather?lat=${lat}&lon=${long}&units=metric`)
       .pipe(
         map((x) => {
           // Map the server data to custom object to only give us what we need
@@ -37,6 +37,7 @@ export class WeatherService {
             summary: x.weather[0].main,
             description: x.weather[0].description,
             windSpeed: x.wind.speed,
+            icon: x.weather[0].icon,
           };
         })
       );

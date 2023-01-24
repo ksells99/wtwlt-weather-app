@@ -5,12 +5,14 @@
         <h3>{{ city.city.name }}</h3>
         <div class="weather-summary">
           <p>{{ city.description }}</p>
-          <img
-            src="../../../assets/icons/weather/cloudy.svg"
-            height="50px"
-            width="50px"
-            alt=""
-          />
+          <div class="weather-icon">
+            <img
+              src="../../../assets/icons/weather/{{ city.icon }}.svg"
+              height="50px"
+              width="50px"
+              alt=""
+            />
+          </div>
           <p>{{ city.temp }}°</p>
         </div>
         <div class="weather-more-details">
