@@ -1,33 +1,9 @@
 <div *ngIf="weatherCities" class="key-cities-container mt-5">
   <div *ngFor="let city of weatherCities" class="card city-card m-2 text-light">
-    <div class="card-body">
-      <div class="weather-container">
-        <h3>{{ city.city.name }}</h3>
-        <div class="weather-summary">
-          <p>{{ city.description }}</p>
-          <div class="weather-icon">
-            <img
-              src="../../../assets/icons/weather/{{ city.icon }}.svg"
-              height="50px"
-              width="50px"
-              alt=""
-            />
-          </div>
-          <p>{{ city.temp }}°</p>
-        </div>
-        <div class="weather-more-details">
-          <div class="feels-like">
-            <p>FEELS LIKE: {{ city.feelsLike }}°</p>
-          </div>
-          <div class="humidity">
-            <p>HUMIDITY: {{ city.humidity }}%</p>
-          </div>
-          <div class="wind-speed">
-            <p>WIND SPEED: {{ city.windSpeed }}m/s</p>
-          </div>
-        </div>
-      </div>
-      <div *ngIf="!weatherCities" class="loading">LOADING...</div>
-    </div>
+    <weather-summary
+      [showCityName]="true"
+      [showCurrentWeatherHeader]="false"
+      [weatherData]="city"
+    ></weather-summary>
   </div>
 </div>

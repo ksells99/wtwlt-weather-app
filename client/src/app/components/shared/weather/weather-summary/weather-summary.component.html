@@ -1,0 +1,34 @@
+<div class="card-body">
+  <div class="weather-container">
+    <div *ngIf="showCityName" class="city-name">
+      <h3>{{ weatherData.city.name }}</h3>
+    </div>
+    <div *ngIf="!showCurrentWeatherHeader" class="current-weather-header">
+      <h5>Current weather...</h5>
+    </div>
+
+    <div class="weather-summary">
+      <p>{{ weatherData.description }}</p>
+      <div class="weather-icon">
+        <img
+          src="../../../assets/icons/weather/{{ weatherData.icon }}.svg"
+          height="50px"
+          width="50px"
+          alt=""
+        />
+      </div>
+      <p>{{ weatherData.temp }}°</p>
+    </div>
+    <div class="weather-more-details">
+      <div class="feels-like">
+        <p>FEELS LIKE: {{ weatherData.feelsLike }}°</p>
+      </div>
+      <div class="humidity">
+        <p>HUMIDITY: {{ weatherData.humidity }}%</p>
+      </div>
+      <div class="wind-speed">
+        <p>WIND SPEED: {{ weatherData.windSpeed }}m/s</p>
+      </div>
+    </div>
+  </div>
+</div>
