@@ -7,7 +7,7 @@ import { NotFoundComponent } from './screens/not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'weather/:id', component: CityWeatherComponent },
+  { path: 'weather/city/:id', component: CityWeatherComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'error', component: ErrorComponent },

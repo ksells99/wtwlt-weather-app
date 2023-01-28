@@ -17,6 +17,9 @@ export interface Main {
   temp_max: number;
   pressure: number;
   humidity: number;
+  sea_level?: number;
+  grnd_level?: number;
+  temp_kf?: number;
 }
 
 export interface Wind {
@@ -52,6 +55,25 @@ export interface ServerWeather {
   cod: number;
 }
 
+export interface ServerForecast {
+  dt: Date;
+  main: Main;
+  weather: Weather[];
+  clouds: Clouds;
+  wind: Wind;
+  visibility: number;
+  pop: number;
+  sys: {
+    pod: string;
+  };
+  dt_text: string;
+}
+
+export interface ServerWeatherAndForecast {
+  current: ServerWeather;
+  forecast: ServerForecast[];
+}
+
 //// CUSTOM ////
 export interface IWeather {
   city: ICity;
@@ -77,4 +99,17 @@ export interface ICity {
   country: string;
   sunrise: number;
   sunset: number;
+}
+
+export interface IForecast {
+  forecastDateTime: Date;
+  dateTimeText: string;
+  temp: number;
+  feelsLike: number;
+  icon: string;
+}
+
+export interface IWeatherAndForecast {
+  current: IWeather;
+  forecast: IForecast[];
 }

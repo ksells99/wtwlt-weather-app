@@ -22,7 +22,10 @@ router.get("/", cache("2 minutes"), async (req, res) => {
     });
 
     // Get data from API
-    const apiResponse = await needle("get", `${API_BASE_URL}?${params}`);
+    const apiResponse = await needle(
+      "get",
+      `${API_BASE_URL}/weather?${params}`
+    );
     const data = apiResponse.body;
 
     // Log request made
@@ -47,9 +50,24 @@ router.get("/city/:id", cache("2 minutes"), async (req, res) => {
         units: "metric",
       });
 
-      // Get data from API
-      const apiResponse = await needle("get", `${API_BASE_URL}?${params}`);
-      const data = apiResponse.body;
+      // Get current weather data from API
+      const currentWeatherApiResponse = await needle(
+        "get",
+        `${API_BASE_URL}/weather?${params}`
+      );
+      const currentWeatherData = currentWeatherApiResponse.body;
+
+      // Get forecast for city
+      const weatherForecastApiResponse = await needle(
+        "get",
+        `${API_BASE_URL}/forecast?${params}`
+      );
+      const weatherForecastData = weatherForecastApiResponse.body.list;
+
+      const data = {
+        current: currentWeatherData,
+        forecast: weatherForecastData,
+      };
 
       // Log request made
       if (process.env.NODE_ENV !== "production") {

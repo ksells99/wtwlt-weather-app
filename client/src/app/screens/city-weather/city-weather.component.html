@@ -1,1 +1,7 @@
 <p>city-weather works!</p>
+<weather-summary
+  *ngIf="currentWeather"
+  [showCityName]="false"
+  [showCurrentWeatherHeader]="true"
+  [weatherData]="currentWeather"
+></weather-summary>
