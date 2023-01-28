@@ -10,8 +10,6 @@ export class CitiesService {
   constructor(private http: HttpClient) {}
 
   getPopularCities(): Observable<ICity[]> {
-    console.log('hello');
     return this.http.get<ICity[]>(`/api/cities/popular`);
-    // .pipe(tap((x) => console.log(x)));
   }
 }

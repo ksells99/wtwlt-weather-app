@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           forkJoin(
             cities.map((city) =>
               this.weatherService
-                .getCurrentWeatherForCity(city.coord.lat, city.coord.lon)
+                .getCurrentWeatherForCity(city.id)
                 .pipe(map((x) => this.weatherCities.push(x)))
             )
           )

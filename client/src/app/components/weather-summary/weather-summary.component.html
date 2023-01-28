@@ -1,4 +1,4 @@
-<div class="card-body">
+<div class="card-body" [routerLink]="['/weather/city', weatherData.city.id]">
   <div class="weather-container">
     <div *ngIf="showCityName" class="city-name">
       <h3>{{ weatherData.city.name }}</h3>

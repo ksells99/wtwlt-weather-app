@@ -15,9 +15,9 @@ import {
 export class WeatherService {
   constructor(private http: HttpClient) {}
 
-  getCurrentWeatherForCity(lat: number, long: number): Observable<IWeather> {
+  getCurrentWeatherForCity(id: number): Observable<IWeather> {
     return this.http
-      .get<ServerWeather>(`/api/weather?lat=${lat}&lon=${long}&units=metric`)
+      .get<ServerWeather>(`/api/weather?id=${id}&units=metric`)
       .pipe(
         map((x) => {
           return this.mapServerWeatherData(x);
@@ -25,7 +25,7 @@ export class WeatherService {
       );
   }
 
-  getWeatherForecastForCity(cityId: number): Observable<any> {
+  getWeatherForecastForCity(cityId: number): Observable<IWeatherAndForecast> {
     return this.http
       .get<ServerWeatherAndForecast>(`/api/weather/city/${cityId}`)
       .pipe(
@@ -51,7 +51,7 @@ export class WeatherService {
   private mapServerWeatherData(x: ServerWeather): IWeather {
     return {
       city: {
-        id: x.sys.id,
+        id: x.id,
         name: x.name,
         coord: {
           lat: x.coord.lat,
