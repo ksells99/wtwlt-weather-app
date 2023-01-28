@@ -5,12 +5,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { WeatherSummaryComponent } from './components/shared/weather/weather-summary/weather-summary.component';
-import { CityWeatherComponent } from './components/city-weather/city-weather.component';
+import { DashboardComponent } from './screens/dashboard/dashboard.component';
+import { WeatherSummaryComponent } from './components/weather-summary/weather-summary.component';
+import { CityWeatherComponent } from './screens/city-weather/city-weather.component';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
-import { NotFoundComponent } from './components/shared/not-found/not-found.component';
-import { ErrorComponent } from './components/shared/error/error/error.component';
+import { NotFoundComponent } from './screens/not-found/not-found.component';
+import { ErrorComponent } from './screens/error/error.component';
 
 @NgModule({
   declarations: [

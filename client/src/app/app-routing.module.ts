@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CityWeatherComponent } from './components/city-weather/city-weather.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ErrorComponent } from './components/shared/error/error/error.component';
-import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+import { CityWeatherComponent } from './screens/city-weather/city-weather.component';
+import { DashboardComponent } from './screens/dashboard/dashboard.component';
+import { ErrorComponent } from './screens/error/error.component';
+import { NotFoundComponent } from './screens/not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
