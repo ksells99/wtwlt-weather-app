@@ -2,12 +2,7 @@
   display: flex;
   justify-content: space-evenly;
 
-  .city-card {
-    background-color: #7e969f;
-    text-align: center;
+  .city {
+    flex-grow: 1;
   }
-}
-
-.card {
-  flex-grow: 1;
 }

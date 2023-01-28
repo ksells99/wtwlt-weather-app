@@ -1,5 +1,5 @@
 <div *ngIf="weatherCities" class="key-cities-container mt-5">
-  <div *ngFor="let city of weatherCities" class="card city-card m-2 text-light">
+  <div class="city" *ngFor="let city of weatherCities">
     <weather-summary
       [showCityName]="true"
       [showCurrentWeatherHeader]="false"
