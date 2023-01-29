@@ -12,6 +12,7 @@ import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { NotFoundComponent } from './screens/not-found/not-found.component';
 import { ErrorComponent } from './screens/error/error.component';
 import { ThreeHourForecastComponent } from './components/three-hour-forecast/three-hour-forecast.component';
+import { FiveDayForecastComponent } from './components/five-day-forecast/five-day-forecast.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ThreeHourForecastComponent } from './components/three-hour-forecast/thr
     NotFoundComponent,
     ErrorComponent,
     ThreeHourForecastComponent,
+    FiveDayForecastComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
   providers: [

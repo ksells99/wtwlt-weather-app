@@ -23,4 +23,21 @@
       </div>
     </div>
   </div>
+
+  <!-- 5 DAY -->
+  <div class="card m-2 text-light five-day-forecast">
+    <div class="card-body">
+      <div class="weather-header">
+        <h5>...and the next few days?</h5>
+      </div>
+
+      <div class="forecast-container">
+        <div *ngIf="fiveDayForecast" class="weather-summary">
+          <div *ngFor="let forecast of fiveDayForecast">
+            <five-day-forecast [forecast]="forecast"></five-day-forecast>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

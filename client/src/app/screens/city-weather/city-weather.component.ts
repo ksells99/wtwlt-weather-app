@@ -41,15 +41,15 @@ export class CityWeatherComponent implements OnInit {
         // 3 hourly forecast - we only care about first 5
         this.threeHourForecast = x.forecast.slice(0, 5);
 
-        // 5 day forecast - get 12pm forecast for each day
-        // this.fiveDayForecast = x.forecast
-        //   .filter((f) => {
-        //     return f.dateTimeText.match('12:00');
-        //   })
-        //   .slice(0, 5);
-
-        console.log(this.threeHourForecast);
-        console.log(this.fiveDayForecast);
+        // 5 day forecast
+        // Free api plan doesn't give a 'daily forecast' so have to improvise!
+        // So just getting the 12pm forecast for each day
+        // TODO - filter out current day as well
+        this.fiveDayForecast = x.forecast
+          .filter((f) => {
+            return f.dateTimeText.match('12:00');
+          })
+          .slice(0, 5);
       })
     );
   }

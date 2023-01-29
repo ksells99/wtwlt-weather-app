@@ -36,7 +36,7 @@ export class WeatherService {
             forecast: x.forecast.map((f) => {
               return {
                 forecastDateTime: f.dt,
-                dateTimeText: f.dt_text,
+                dateTimeText: f.dt_txt,
                 temp: f.main.temp,
                 feelsLike: f.main.feels_like,
                 icon: f.weather[0].icon,

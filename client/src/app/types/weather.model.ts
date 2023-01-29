@@ -66,7 +66,7 @@ export interface ServerForecast {
   sys: {
     pod: string;
   };
-  dt_text: string;
+  dt_txt: string;
 }
 
 export interface ServerWeatherAndForecast {

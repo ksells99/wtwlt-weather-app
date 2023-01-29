@@ -4,9 +4,17 @@
   text-align: center;
 }
 
+.three-hour-forecast,
+.five-day-forecast {
+  text-align: center;
+}
+
 .three-hour-forecast {
   background-color: #219ebc;
-  text-align: center;
+}
+
+.five-day-forecast {
+  background-color: #264653;
 }
 
 .weather-header {
