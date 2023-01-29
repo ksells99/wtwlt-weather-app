@@ -1,12 +1,36 @@
+.flex {
+  display: flex;
+}
+
+.left-item {
+  display: flex;
+  //   flex: 1 1 0;
+  align-items: stretch;
+}
+
+.right-items {
+  display: flex;
+  flex: 3 1 0;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .weather-summary {
   display: flex;
   justify-content: space-evenly;
   text-align: center;
+
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 0px;
+  width: 100%;
 }
 
 .three-hour-forecast,
 .five-day-forecast {
   text-align: center;
+  height: 100%;
 }
 
 .three-hour-forecast {
@@ -20,4 +44,10 @@
 .weather-header {
   text-align: left;
   font-style: italic;
+}
+
+@media (max-width: 800px) {
+  .flex {
+    flex-direction: column;
+  }
 }

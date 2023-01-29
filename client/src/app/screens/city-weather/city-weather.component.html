@@ -1,40 +1,45 @@
 <div class="flex">
-  <!-- CURRENT -->
-  <weather-summary
-    *ngIf="currentWeather"
-    [showCityName]="false"
-    [showCurrentWeatherHeader]="true"
-    [weatherData]="currentWeather"
-  ></weather-summary>
+  <div class="left-item">
+    <!-- CURRENT -->
+    <weather-summary
+      class="weather-summary"
+      *ngIf="currentWeather"
+      [showCityName]="false"
+      [showCurrentWeatherHeader]="true"
+      [weatherData]="currentWeather"
+    ></weather-summary>
+  </div>
 
-  <!-- 3 HOUR -->
-  <div class="card m-2 text-light three-hour-forecast">
-    <div class="card-body">
-      <div class="weather-header">
-        <h5>what about the new few hours...?</h5>
-      </div>
+  <div class="right-items">
+    <!-- 3 HOUR -->
+    <div class="card m-2 text-light three-hour-forecast">
+      <div class="card-body">
+        <div class="weather-header">
+          <h5>what about the new few hours...?</h5>
+        </div>
 
-      <div class="forecast-container">
-        <div *ngIf="threeHourForecast" class="weather-summary">
-          <div *ngFor="let forecast of threeHourForecast">
-            <three-hour-forecast [forecast]="forecast"></three-hour-forecast>
+        <div class="forecast-container">
+          <div *ngIf="threeHourForecast" class="weather-summary">
+            <div *ngFor="let forecast of threeHourForecast">
+              <three-hour-forecast [forecast]="forecast"></three-hour-forecast>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- 5 DAY -->
-  <div class="card m-2 text-light five-day-forecast">
-    <div class="card-body">
-      <div class="weather-header">
-        <h5>...and the next few days?</h5>
-      </div>
+    <!-- 5 DAY -->
+    <div class="card mx-2 my-0 text-light five-day-forecast">
+      <div class="card-body">
+        <div class="weather-header">
+          <h5>...and the next few days?</h5>
+        </div>
 
-      <div class="forecast-container">
-        <div *ngIf="fiveDayForecast" class="weather-summary">
-          <div *ngFor="let forecast of fiveDayForecast">
-            <five-day-forecast [forecast]="forecast"></five-day-forecast>
+        <div class="forecast-container">
+          <div *ngIf="fiveDayForecast" class="weather-summary">
+            <div *ngFor="let forecast of fiveDayForecast">
+              <five-day-forecast [forecast]="forecast"></five-day-forecast>
+            </div>
           </div>
         </div>
       </div>

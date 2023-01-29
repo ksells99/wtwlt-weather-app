@@ -1,12 +1,14 @@
-<p class="forecast-date">
-  {{ forecast.forecastDateTime * 1000 | date : "dd/MM/YY" }}
-</p>
-<div class="weather-icon">
-  <img
-    src="../../../assets/icons/weather/{{ forecast.icon }}.svg"
-    height="75px"
-    width="75px"
-    alt=""
-  />
+<div class="five-day-forecast">
+  <p class="forecast-date">
+    {{ forecast.forecastDateTime * 1000 | date : "dd/MM/YY" }}
+  </p>
+  <div class="weather-icon">
+    <img
+      src="../../../assets/icons/weather/{{ forecast.icon }}.svg"
+      height="75px"
+      width="75px"
+      alt=""
+    />
+  </div>
+  <p>{{ forecast.temp }}°</p>
 </div>
-<p>{{ forecast.temp }}°</p>
