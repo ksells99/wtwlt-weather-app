@@ -1,7 +1,26 @@
-<p>city-weather works!</p>
-<weather-summary
-  *ngIf="currentWeather"
-  [showCityName]="false"
-  [showCurrentWeatherHeader]="true"
-  [weatherData]="currentWeather"
-></weather-summary>
+<div class="flex">
+  <!-- CURRENT -->
+  <weather-summary
+    *ngIf="currentWeather"
+    [showCityName]="false"
+    [showCurrentWeatherHeader]="true"
+    [weatherData]="currentWeather"
+  ></weather-summary>
+
+  <!-- 3 HOUR -->
+  <div class="card m-2 text-light three-hour-forecast">
+    <div class="card-body">
+      <div class="weather-header">
+        <h5>what about the new few hours...?</h5>
+      </div>
+
+      <div class="forecast-container">
+        <div *ngIf="threeHourForecast" class="weather-summary">
+          <div *ngFor="let forecast of threeHourForecast">
+            <three-hour-forecast [forecast]="forecast"></three-hour-forecast>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

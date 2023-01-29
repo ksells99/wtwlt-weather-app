@@ -1,0 +1,15 @@
+.weather-summary {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.three-hour-forecast {
+  background-color: #219ebc;
+  text-align: center;
+}
+
+.weather-header {
+  text-align: left;
+  font-style: italic;
+}

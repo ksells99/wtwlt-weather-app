@@ -3,7 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { map, Observable, Subscription, tap } from 'rxjs';
 import { CitiesService } from 'src/app/services/cities.service';
 import { WeatherService } from 'src/app/services/weather.service';
-import { IWeather, IWeatherAndForecast } from 'src/app/types/weather.model';
+import {
+  IForecast,
+  IWeather,
+  IWeatherAndForecast,
+} from 'src/app/types/weather.model';
 
 @Component({
   selector: 'app-city-weather',
@@ -18,6 +22,8 @@ export class CityWeatherComponent implements OnInit {
   ) {}
 
   currentWeather!: IWeather;
+  threeHourForecast!: IForecast[];
+  fiveDayForecast!: IForecast[];
 
   weatherData$!: Subscription;
 
@@ -31,6 +37,19 @@ export class CityWeatherComponent implements OnInit {
     return this.weatherService.getWeatherForecastForCity(id).pipe(
       map((x: IWeatherAndForecast) => {
         this.currentWeather = x.current;
+
+        // 3 hourly forecast - we only care about first 5
+        this.threeHourForecast = x.forecast.slice(0, 5);
+
+        // 5 day forecast - get 12pm forecast for each day
+        // this.fiveDayForecast = x.forecast
+        //   .filter((f) => {
+        //     return f.dateTimeText.match('12:00');
+        //   })
+        //   .slice(0, 5);
+
+        console.log(this.threeHourForecast);
+        console.log(this.fiveDayForecast);
       })
     );
   }

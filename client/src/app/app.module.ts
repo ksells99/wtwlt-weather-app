@@ -11,6 +11,7 @@ import { CityWeatherComponent } from './screens/city-weather/city-weather.compon
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { NotFoundComponent } from './screens/not-found/not-found.component';
 import { ErrorComponent } from './screens/error/error.component';
+import { ThreeHourForecastComponent } from './components/three-hour-forecast/three-hour-forecast.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ErrorComponent } from './screens/error/error.component';
     CityWeatherComponent,
     NotFoundComponent,
     ErrorComponent,
+    ThreeHourForecastComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
   providers: [

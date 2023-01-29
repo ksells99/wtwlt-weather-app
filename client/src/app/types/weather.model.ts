@@ -56,7 +56,7 @@ export interface ServerWeather {
 }
 
 export interface ServerForecast {
-  dt: Date;
+  dt: number;
   main: Main;
   weather: Weather[];
   clouds: Clouds;
@@ -102,7 +102,7 @@ export interface ICity {
 }
 
 export interface IForecast {
-  forecastDateTime: Date;
+  forecastDateTime: number;
   dateTimeText: string;
   temp: number;
   feelsLike: number;
